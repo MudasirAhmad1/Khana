@@ -1,0 +1,27 @@
+open = true
+$('.tear').click -> 
+  if open
+    $('.tear').addClass('active')
+    $('.message').addClass('active')
+    $('.tear').html("<span><i class='fa fa-close'></i></span>")
+    open = !open
+  else
+    $('.tear').removeClass('active green')
+    $('.message').removeClass('active')
+    $('.message').val('')
+    $('.tear').html("<span><i class='fa fa-life-ring'></i></span>")
+    open = !open
+
+
+
+$('input').on 'input', (e)-> 
+  value = $("input").val()
+  if value.length >= 2
+    $('.tear').addClass('green')
+    $('.tear').removeClass('active')
+    $('.tear').html("<span><i class='fa fa-check'></i></span>")
+  else
+    $('.tear').removeClass('green')
+    $('.tear').addClass('active')
+    $('.tear').html("<span><i class='fa fa-close'></i></span>")
+  
